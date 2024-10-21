@@ -1,0 +1,186 @@
+.employeerItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px 20px;
+  margin: 0 -20px;
+  border-top: 1px solid var(--gray30);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s ease-in-out, padding 0.2s ease-in-out;
+  background: none;
+
+  &_active {
+    background: var(--gray10);
+    padding-bottom: 135px;
+  }
+
+  &_general {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    &_img {
+      border-radius: 50%;
+    }
+
+    &_head {
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+      justify-content: center;
+
+      &_name {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      &_email {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--gray);
+      }
+    }
+
+    &_btn {
+      display: flex;
+      //position: relative;
+      gap: 8px;
+      margin-left: auto;
+
+      &_icon {
+        width: 20px;
+        height: 20px;
+        transform: rotate(0);
+        transition: transform 0.1s ease-in-out;
+
+        &_active {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  &_more {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    &_dot {
+      background: var(--gray);
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+    }
+
+    &_text {
+      font-size: 12px;
+      font-weight: 700;
+      transform: translateY(1px);
+      color: var(--dark90);
+    }
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--gray);
+  }
+}
+
+// Vertical Icon Modal
+
+.moreVertModal {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  position: absolute;
+  visibility: hidden;
+  right: 55px;
+  left: 20px;
+  top: 5px;
+  bottom: 5px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  opacity: 0;
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+  &_active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_item {
+    text-align: center;
+    padding: 8px 4px;
+    background-color: var(--blue);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #fff;
+
+  }
+}
+
+.bottomInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  column-gap: 48px;
+  row-gap: 14px;
+  position: absolute;
+  visibility: hidden;
+  margin-bottom: 0;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease, bottom 0.2s ease-in-out;
+  opacity: 0;
+  bottom: -90px;
+
+  &_active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 20px;
+  }
+
+  &_item_last {
+    width: 100%;
+  }
+
+  &_item {
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+
+    &_subtitle {
+      color: var(--gray);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    &_descr {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      padding: 6px 0;
+
+      &_icon {
+        display: block;
+        background: var(--green);
+        height: 6px;
+        width: 6px;
+        border-radius: 2px;
+      }
+
+      &_tag {
+        align-self: start;
+        border-radius: 12px;
+        padding: 6px 8px;
+        background-color: var(--greenPhone);
+      }
+    }
+  }
+}

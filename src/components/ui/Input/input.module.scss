@@ -1,0 +1,16 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &_heading {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  &_input {
+    padding: 8px;
+    border: 1px solid var(--gray30);
+    border-radius: 6px;
+  }
+}
