@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  margin: 0 -20px;
+  border-bottom: 1px solid var(--gray30);
+
+  &_logoCon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &_img {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+
+    &_title {
+      font-size: 16px;
+    }
+  }
+
+  &_btn {
+    &_icon {
+      color: var(--gray);
+    }
+  }
+}

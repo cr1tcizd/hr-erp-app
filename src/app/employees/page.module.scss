@@ -1,6 +1,7 @@
 .page {
   max-width: 576px;
   margin: 0 auto;
+  opacity: 1;
 }
 
 // new employee
@@ -126,6 +127,7 @@
       left: 10px;
       transform: translateY(-50%);
       width: 20px;
+      height: 20px;
       color: var(--gray);
     }
   }

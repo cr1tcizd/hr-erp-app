@@ -1,0 +1,22 @@
+.data {
+  display: flex;
+  flex-direction: column;
+
+  &_heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px 20px;
+    border-bottom: 1px solid var(--gray30);
+    margin: 0 -20px;
+    margin-bottom: 20px;
+
+    &_step {
+      color: var(--gray);
+    }
+
+    &_title {
+      font-size: 18px;
+    }
+  }
+}

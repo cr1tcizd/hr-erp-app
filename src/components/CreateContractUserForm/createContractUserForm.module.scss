@@ -1,0 +1,50 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &_imageContainer {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      &_img {
+        border-radius: 50%;
+        border: 1px solid var(--blue);
+      }
+
+      &_inpCon {
+        &_label {
+          display: block;
+          padding: 12px 28px;
+          border-radius: 8px;
+          background: var(--blue);
+          color: #fff;
+          font-weight: 600;
+        }
+
+        &_input {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &_btn {
+    padding: 12px 12px;
+    background-color: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+}
+
+
+

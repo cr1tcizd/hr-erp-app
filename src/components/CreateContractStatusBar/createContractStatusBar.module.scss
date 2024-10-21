@@ -1,0 +1,51 @@
+.statusBar {
+  display: flex;
+  align-items: center;
+
+  &_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border: 1px solid var(--gray30);
+    border-radius: 50px;
+    color: var(--gray80);
+    transition: color 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+
+    &_active {
+      border: 1px solid var(--blue);
+      color: var(--dark);
+
+      .statusBar_item_icon {
+        color: var(--gray);
+        border: 1px solid var(--blue);
+        border-radius: 50%;
+      }
+    }
+
+    &_icon {
+      height: 20px;
+      width: 20px;
+      transition: color 0.2s ease-in-out;
+      color: var(--gray80);
+
+      &_active {
+        color: var(--blue);
+      }
+    }
+
+    &_text {
+      text-align: center;
+      font-size: 12px;
+      //color: var(--gray);
+    }
+
+    &_line {
+      height: 1px;
+      width: 40px;
+      background-color: var(--gray50);
+      color: var(--gray);
+    }
+  }
+}
