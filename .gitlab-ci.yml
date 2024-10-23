@@ -1,10 +1,9 @@
-default:
-  image: node:latest
-
-deploy_production:
+deploy_dev:
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
   stage: deploy
   script:
-    - npm install --global vercel
-    - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
-    - vercel build --prod --token=$VERCEL_TOKEN
-    - vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+    - docker rm -f hrerp-nextjs
+    - docker build -t hrerp/nextjs-app:latest -t hrerp/nextjs-app:$CI_COMMIT_SHA .
+    - docker run -d -p 3000:3000 --name hrerp-nextjs hrerp/nextjs-app:$CI_COMMIT_SHA
