@@ -2,6 +2,7 @@ import withPWA from "next-pwa";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   reactStrictMode: true, // Enable React strict mode for improved error handling
   swcMinify: true, // Enable SWC minification for improved performance
   images: {
