@@ -1,0 +1,12 @@
+.item {
+	display: flex;
+	justify-content: space-between;
+
+	&_name {
+		font-size: 13px;
+	}
+
+	&_descr {
+		font-size: 13px;
+	}
+}
