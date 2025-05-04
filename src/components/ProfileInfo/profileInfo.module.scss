@@ -1,0 +1,10 @@
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+	border: 1px solid var(--gray30);
+	border-radius: 8px;
+	padding: 20px 20px;
+	margin: 0 -20px;
+}
