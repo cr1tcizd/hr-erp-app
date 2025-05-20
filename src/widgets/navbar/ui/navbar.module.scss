@@ -1,0 +1,49 @@
+.page {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 12px 20px;
+	width: 100%;
+	background-color: #fff;
+	border-top: 1px solid var(--gray);
+
+	&_content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: var(--gray);
+		width: 100px;
+
+		&_icon {
+			width: 25px;
+			height: 25px;
+		}
+
+		&_text {
+			font-size: 12px;
+			font-weight: 600;
+		}
+	}
+}
+
+.list {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.active_indicator {
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: var(--blue);
+	border-radius: 4px;
+}

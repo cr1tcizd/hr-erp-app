@@ -1,5 +1,11 @@
 'use client'
-import React, { Dispatch, SetStateAction, useRef, useState } from 'react'
+import React, {
+	Dispatch,
+	MouseEventHandler,
+	SetStateAction,
+	useRef,
+	useState,
+} from 'react'
 import styles from './employeeItem.module.scss'
 import Image from 'next/image'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -28,7 +34,8 @@ const EmployeeItem = ({ user, setUsers }: EmployeeItemProps) => {
 
 	const ref = useRef(null)
 
-	const handleOpenMoreInfo = () => {
+	const handleOpenMoreInfo = (e: any) => {
+		e.stopPropagation()
 		setMoreInfoOpen(!moreInfoOpen)
 	}
 
@@ -36,16 +43,12 @@ const EmployeeItem = ({ user, setUsers }: EmployeeItemProps) => {
 		setMoreVertModal(false)
 	})
 
-	const handleDeleteEmployee = () => {
-		deleteEmployee(user.id).then(() => {
-			alert('Пользователь успешно удален')
-			getUsers().then(users => setUsers(users))
-		})
-	}
-
 	return (
 		<div
 			className={`${styles.employeerItem} ${moreInfoOpen && styles.employeerItem_active}`}
+			onClick={() => {
+				routing.push(`/employees/${user.id}`)
+			}}
 		>
 			<div className={styles.employeerItem_general}>
 				<Image
@@ -64,53 +67,17 @@ const EmployeeItem = ({ user, setUsers }: EmployeeItemProps) => {
 					</p>
 				</div>
 				<div className={styles.employeerItem_general_btn}>
-					<Button onClick={handleOpenMoreInfo}>
+					<Button onClick={e => handleOpenMoreInfo(e)}>
 						<KeyboardArrowDownOutlinedIcon
 							className={`${styles.employeerItem_general_btn_icon} ${moreInfoOpen && styles.employeerItem_general_btn_icon_active}`}
 						/>
 					</Button>
-					<Button
-						onClick={() => {
-							setMoreVertModal(!moreVertModal)
-							setMoreInfoOpen(false)
-						}}
-					>
-						<MoreVertIcon sx={{ fontSize: 20 }} />
-					</Button>
-					{/*{moreVertModal && (*/}
-					<div
-						ref={ref}
-						className={
-							moreVertModal
-								? `${styles.moreVertModal} ${styles.moreVertModal_active}`
-								: `${styles.moreVertModal}`
-						}
-					>
-						<p
-							className={`${styles.moreVertModal_item}`}
-							onClick={() => routing.push('/employees/' + user.id)}
-						>
-							Профиль
-						</p>
-						<p
-							className={`${styles.moreVertModal_item}`}
-							onClick={handleDeleteEmployee}
-						>
-							Удалить
-						</p>
-					</div>
-					{/*)*/}
 				</div>
 			</div>
 			<div className={styles.employeerItem_more}>
 				<div className={styles.employeerItem_item}>
 					<LocalPhoneOutlinedIcon sx={{ fontSize: 16 }} />
 					<p className={styles.employeerItem_more_text}>{user.phoneNumber}</p>
-				</div>
-				<div className={styles.employeerItem_more_dot}></div>
-				<div className={styles.employeerItem_item}>
-					<AccessTimeOutlinedIcon sx={{ fontSize: 16 }} />
-					<p className={styles.employeerItem_more_text}>12h 8m</p>
 				</div>
 			</div>
 			<div

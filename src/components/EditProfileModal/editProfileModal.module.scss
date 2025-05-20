@@ -1,0 +1,105 @@
+.modal {
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease-in-out,
+		visibility 0.3s ease-in-out;
+}
+
+.modal_active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal_close {
+	border: none;
+	background: var(--blue);
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 40px;
+	top: 0px;
+	border-radius: 50px;
+	color: white;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.modal__content {
+	padding: 40px;
+	background: rgba($color: #fff, $alpha: 1);
+	height: 100%;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	&_container {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		&_imageContainer {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+
+			&_img {
+				border-radius: 50%;
+				border: 1px solid var(--blue);
+			}
+
+			&_inpCon {
+				&_label {
+					display: block;
+					padding: 12px 28px;
+					border-radius: 8px;
+					background: var(--blue);
+					color: #fff;
+					font-weight: 600;
+				}
+
+				&_input {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.selectContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	&_label {
+		font-size: 12px;
+		color: var(--gray);
+	}
+
+	&_select {
+		width: 100%;
+		height: 33px;
+		padding: 3px 8px;
+		border: 1px solid var(--gray30);
+		border-radius: 6px;
+		outline: none;
+		font-size: 13px;
+		color: var(--dark);
+		background: white;
+
+		&_item {
+		}
+	}
+}
+
+.error {
+	color: red;
+}

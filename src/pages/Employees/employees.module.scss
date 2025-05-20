@@ -1,140 +1,142 @@
 .page {
-  max-width: 576px;
-  margin: 0 auto;
-  opacity: 1;
+	max-width: 576px;
+	margin: 0 auto;
+	opacity: 1;
 }
 
 // new employee
 
 .newEmpl {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 30px 20px;
-  margin: 0 -20px;
-  background: var(--gray10);
-  border-bottom: 1px solid var(--gray30);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 30px 20px;
+	margin: 0 -20px;
+	background: var(--gray10);
+	border-bottom: 1px solid var(--gray30);
 
-  &_title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
+	&_title {
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 6px;
+	}
 
-  &_descr {
-    margin-bottom: 16px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gray);
-  }
+	&_descr {
+		margin-bottom: 16px;
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--gray);
+	}
 
-  &_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 6px 0;
-    background: var(--blue);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-  }
+	&_btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 6px 0;
+		background: var(--blue);
+		border: none;
+		border-radius: 8px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 600;
+	}
 }
 
 // Widget
 
 .widged {
-  display: flex;
-  gap: 16px;
-  padding: 0 20px;
-  margin: 0 -20px;
-  border-bottom: 1px solid var(--gray30);
+	display: flex;
+	gap: 16px;
+	padding: 0 20px;
+	margin: 0 -20px;
+	border-bottom: 1px solid var(--gray30);
 
-  &_content {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    border-bottom: 2px solid transparent;
-    color: var(--gray);
-    transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	&_content {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		border-bottom: 2px solid transparent;
+		color: var(--gray);
+		transition:
+			border-bottom-color 0.2s ease-in-out,
+			color 0.2s ease-in-out;
 
-    &_active {
-      border-bottom: 2px solid var(--blue);
-      color: var(--blue);
+		&_active {
+			border-bottom: 2px solid var(--blue);
+			color: var(--blue);
 
-      .widged_content_btn {
-        color: var(--blue);
-      }
-    }
+			.widged_content_btn {
+				color: var(--blue);
+			}
+		}
 
-    &_btn {
-      font-size: 14px;
-      background: none;
-      border: none;
-      color: var(--gray);
-      font-weight: 600;
-      padding: 12px 0;
-      transition: color 0.2s ease-in-out;
-    }
+		&_btn {
+			font-size: 14px;
+			background: none;
+			border: none;
+			color: var(--gray);
+			font-weight: 600;
+			padding: 12px 0;
+			transition: color 0.2s ease-in-out;
+		}
 
-    &_icon {
-      width: 20px;
-    }
-  }
+		&_icon {
+			width: 20px;
+		}
+	}
 }
 
 // Manage Section
 
-.manageSecton {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 20px;
+.manageSection {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding-top: 20px;
 
-  &_title {
-    font-size: 20px;
-    font-weight: 700;
-  }
+	&_title {
+		font-size: 20px;
+		font-weight: 700;
+	}
 
-  &_searchCon {
-    display: flex;
-    gap: 4px;
-  }
+	&_searchCon {
+		display: flex;
+		gap: 4px;
+	}
 
-  &_inpCont {
-    position: relative;
-    width: 100%;
+	&_inpCont {
+		position: relative;
+		width: 100%;
 
-    &_input {
-      padding: 8px 8px 8px 40px;
-      border: 1px solid var(--gray30);
-      border-radius: 8px;
-      width: 100%;
+		&_input {
+			padding: 8px 8px 8px 40px;
+			border: 1px solid var(--gray30);
+			border-radius: 8px;
+			width: 100%;
 
-      &::placeholder {
-        font-family: Inter, sans-serif;
-        color: var(--gray80);
-        font-weight: 500;
-        font-size: 13px;
-      }
-    }
+			&::placeholder {
+				font-family: Inter, sans-serif;
+				color: var(--gray80);
+				font-weight: 500;
+				font-size: 13px;
+			}
+		}
 
-    &_icon {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      color: var(--gray);
-    }
-  }
+		&_icon {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translateY(-50%);
+			width: 20px;
+			height: 20px;
+			color: var(--gray);
+		}
+	}
 }
 
-@media(max-width: 576px) {
-  .page {
-    max-width: 576px;
-  }
+@media (max-width: 576px) {
+	.page {
+		max-width: 576px;
+	}
 }

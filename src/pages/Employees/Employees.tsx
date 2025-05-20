@@ -1,101 +1,110 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { getUsers } from "@/api/userAPI";
-import { IUser } from "@/types/IUser";
-import styles from "./employees.module.scss";
+import { useEffect } from 'react'
+import { getSearchedUsers, getUsers } from '@/api/userAPI'
+import styles from './employees.module.scss'
 
-import SearchIcon from "@mui/icons-material/Search";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
-import AddIcon from "@mui/icons-material/Add";
-import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
+import SearchIcon from '@mui/icons-material/Search'
+import AddIcon from '@mui/icons-material/Add'
 
-import Navbar from "@/components/Navbar/Navbar";
-import Button from "@/components/ui/Button/Button";
-import EmployeeItem from "@/components/EmployeerItem/EmployeeItem";
-import Link from "next/link";
-import { MoonLoader } from "react-spinners";
+import EmployeeItem from '@/components/EmployeerItem/EmployeeItem'
+import Link from 'next/link'
+import { MoonLoader } from 'react-spinners'
+import useEmployees from '@/hooks/useEmployees'
+import { Header } from '@/widgets/header'
+import { motion } from 'framer-motion'
+import { useAuth } from '@/context/auth-context'
 
 export default function Employees() {
-  const [users, setUsers] = useState<IUser[]>([]);
-  const [currentTab, setCurrentTab] = useState(1);
+	const { error, loading, users, setUsers } = useEmployees()
+	const { user: currentUser, loading: authLoading } = useAuth()
+	const handleSearchName = (name: any) => {
+		getSearchedUsers(name).then(users => setUsers(users))
+	}
 
-  useEffect(() => {
-    getUsers().then((users) => setUsers(users));
-  }, []);
+	useEffect(() => {
+		getUsers().then(users => setUsers(users))
+	}, [])
 
-  return (
-    <div className={`${styles.page} container`}>
-      <Navbar />
-      <div className={styles.newEmpl}>
-        <h1 className={styles.newEmpl_title}>Сотрудники</h1>
-        <p className={styles.newEmpl_descr}>Управляй своими сотрудниками</p>
-        <Link href="/employees/create-contract" className={styles.newEmpl_btn}>
-          <AddIcon />
-          Добавить сотрудника
-        </Link>
-      </div>
-      <div className={styles.widged}>
-        <div
-          onClick={() => setCurrentTab(1)}
-          className={`${styles.widged_content} ${currentTab == 1 && styles.widged_content_active}`}
-        >
-          <ManageAccountsOutlinedIcon className={styles.widged_content_icon} />
-          <button className={styles.widged_content_btn}>
-            Управление работниками
-          </button>
-        </div>
-        <div
-          onClick={() => setCurrentTab(2)}
-          className={`${styles.widged_content} ${currentTab === 2 && styles.widged_content_active}`}
-        >
-          <PersonSearchIcon className={styles.widged_content_icon} />
-          <button className={styles.widged_content_btn}>
-            Заявки на работу
-          </button>
-        </div>
-      </div>
-      {currentTab === 1 ? (
-        <div className={styles.manageSecton}>
-          <h1 className={styles.manageSecton_title}>Управление работниками</h1>
-          <div className={styles.manageSecton_searchCon}>
-            <div className={styles.manageSecton_inpCont}>
-              <input
-                className={styles.manageSecton_inpCont_input}
-                type="text"
-                placeholder="Поиск сотрудника..."
-              />
-              <SearchIcon className={styles.manageSecton_inpCont_icon} />
-            </div>
-            <Button>
-              <FilterAltOutlinedIcon sx={{ fontSize: 20 }} />
-              Фильтр
-            </Button>
-          </div>
-          <div>
-            {users.length !== 0 ? (
-              users.map((user) => (
-                <EmployeeItem key={user.id} user={user} setUsers={setUsers} />
-              ))
-            ) : (
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  height: "200px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <MoonLoader size={32} />
-              </div>
-            )}
-          </div>
-        </div>
-      ) : (
-        <div>ничего нет</div>
-      )}
-    </div>
-  );
+	console.log(currentUser)
+
+	if (authLoading)
+		return (
+			<div
+				style={{
+					width: '100%',
+					display: 'flex',
+					height: '200px',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				<MoonLoader size={32} />
+			</div>
+		)
+
+	return (
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: 20 }}
+			className={`${styles.page} container`}
+		>
+			<Header />
+
+			{currentUser?.position?.name === 'HR Специалист' ? (
+				<div className={styles.newEmpl}>
+					<h1 className={styles.newEmpl_title}>Сотрудники</h1>
+					<p className={styles.newEmpl_descr}>Управляй своими сотрудниками</p>
+					<Link
+						href='/employees/create-contract'
+						className={styles.newEmpl_btn}
+					>
+						<AddIcon />
+						Добавить сотрудника
+					</Link>
+				</div>
+			) : (
+				<div className={styles.newEmpl}>
+					<h1 className={styles.newEmpl_title}>Сотрудники</h1>
+				</div>
+			)}
+
+			<div className={styles.manageSection}>
+				<h1 className={styles.manageSection_title}>Управление работниками</h1>
+				<div className={styles.manageSection_searchCon}>
+					<div className={styles.manageSection_inpCont}>
+						<input
+							className={styles.manageSection_inpCont_input}
+							type='text'
+							placeholder='Поиск сотрудника...'
+							onChange={e => {
+								handleSearchName(e.target.value)
+							}}
+						/>
+						<SearchIcon className={styles.manageSection_inpCont_icon} />
+					</div>
+				</div>
+				<div>
+					{loading ? (
+						<div
+							style={{
+								width: '100%',
+								display: 'flex',
+								height: '200px',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<MoonLoader size={32} />
+						</div>
+					) : (
+						users.map(user => (
+							<EmployeeItem key={user.id} user={user} setUsers={setUsers} />
+						))
+					)}
+				</div>
+			</div>
+		</motion.div>
+	)
 }
