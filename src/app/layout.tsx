@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.scss'
 import { Inter } from 'next/font/google'
-import BottomNavbar from '@/components/BottomNavbar/BottomNavbar'
+import { Navbar } from '@/widgets/navbar'
+import AnimatedWrapper from '@/components/AnimatedWrapper/AnimatedWrapper'
+import { AuthProvider } from '@/context/auth-context'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -79,8 +81,12 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${inter.className} ${geistMono.variable}`}
 			>
-				<BottomNavbar />
-				{children}
+				<AuthProvider>
+					<AnimatedWrapper>
+						<Navbar />
+						{children}
+					</AnimatedWrapper>
+				</AuthProvider>
 			</body>
 		</html>
 	)

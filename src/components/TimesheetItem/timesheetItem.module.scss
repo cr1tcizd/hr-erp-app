@@ -1,0 +1,31 @@
+.list__item {
+	border-top: 1px solid grey;
+	margin: 0 -20px;
+	padding: 20px 40px;
+}
+
+.item_top {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+.item_bottom {
+	display: flex;
+	justify-content: space-between;
+}
+
+.item_top__sub {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.item__sub {
+	display: flex;
+	gap: 12px;
+}
+
+.sub__time {
+	width: 30px;
+	text-align: end;
+}

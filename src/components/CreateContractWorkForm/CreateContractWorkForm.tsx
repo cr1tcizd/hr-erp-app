@@ -61,10 +61,15 @@ const CreateContractWorkForm = ({
 					Рабочий телефон:
 				</Input>
 				<div className={styles.selectContainer}>
-					<InputLabel className={styles.selectContainer_label} id='deparment'>
+					<InputLabel
+						style={{ fontSize: '12px' }}
+						className={styles.selectContainer_label}
+						id='deparment'
+					>
 						Отдел:
 					</InputLabel>
 					<Select
+						style={{ fontSize: '12px' }}
 						disableUnderline
 						className={styles.selectContainer_select}
 						variant='standard'
@@ -83,10 +88,15 @@ const CreateContractWorkForm = ({
 					</Select>
 				</div>
 				<div className={styles.selectContainer}>
-					<InputLabel className={styles.selectContainer_label} id='deparment'>
+					<InputLabel
+						style={{ fontSize: '12px' }}
+						className={styles.selectContainer_label}
+						id='deparment'
+					>
 						Контракт:
 					</InputLabel>
 					<Select
+						style={{ fontSize: '12px' }}
 						disableUnderline
 						className={styles.selectContainer_select}
 						variant='standard'
@@ -105,10 +115,15 @@ const CreateContractWorkForm = ({
 					</Select>
 				</div>
 				<div className={styles.selectContainer}>
-					<InputLabel className={styles.selectContainer_label} id='deparment'>
+					<InputLabel
+						style={{ fontSize: '12px' }}
+						className={styles.selectContainer_label}
+						id='deparment'
+					>
 						Должность:
 					</InputLabel>
 					<Select
+						style={{ fontSize: '12px' }}
 						disableUnderline
 						className={styles.selectContainer_select}
 						variant='standard'
@@ -127,10 +142,15 @@ const CreateContractWorkForm = ({
 					</Select>
 				</div>
 				<div className={styles.selectContainer}>
-					<InputLabel className={styles.selectContainer_label} id='deparment'>
+					<InputLabel
+						style={{ fontSize: '12px' }}
+						className={styles.selectContainer_label}
+						id='deparment'
+					>
 						Занятость:
 					</InputLabel>
 					<Select
+						style={{ fontSize: '12px' }}
 						disableUnderline
 						className={styles.selectContainer_select}
 						variant='standard'

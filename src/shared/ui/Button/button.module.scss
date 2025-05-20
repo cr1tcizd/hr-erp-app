@@ -1,0 +1,11 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray30);
+  padding: 4px 4px;
+  color: var(--gray);
+  background: none;
+  border-radius: 8px;
+  //cursor: pointer;
+}
