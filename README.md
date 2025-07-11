@@ -1,6 +1,6 @@
 # Сервис учёта сотрудников
 
-![PWA Ready](https://img.shields.io/badge/PWA-Ready-blue?logo=pwa) ![NextJS](https://img.shields.io/badge/NextJS-13-black?logo=next.js) ![React](https://img.shields.io/badge/React-18-blue?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![CI/CD](https://img.shields.io/badge/CI/CD-GitLab_CI-orange?logo=gitlab)
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-blue?logo=pwa)](https://github.com/cr1tcizd/hr-erp-app) [![NextJS](https://img.shields.io/badge/NextJS-14-black?logo=next.js)](https://github.com/cr1tcizd/hr-erp-app) [![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://github.com/cr1tcizd/hr-erp-app) [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://github.com/cr1tcizd/hr-erp-app) [![GitHub Auth](https://img.shields.io/badge/Auth-GitHub-black?logo=github)](https://github.com/cr1tcizd/hr-erp-app) [![CI/CD](https://img.shields.io/badge/CI/CD-GitHub_Actions-green?logo=githubactions)](https://github.com/cr1tcizd/hr-erp-app/actions)
 
 Проект создан для дипломной работы как мобильное PWA-приложение для управления сотрудниками и их табелями учёта времени. Полный исходный код доступен на GitLab:
 
